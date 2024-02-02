@@ -24,7 +24,7 @@ pipeline {
         {
             steps {
                 sh 'apt-get install python3'
-                sh 'python3 -m ensurepip --upgrade'
+                sh 'python3 -m pip install --upgrade pip'
                 sh 'pip install html5validator'
             }
         }
