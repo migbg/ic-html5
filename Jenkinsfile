@@ -14,19 +14,19 @@ pipeline {
         stage('npm')
         {
             steps {
-                sh 'apt-get install npm'
+                sh 'sudo apt-get install npm'
             }
         }
         stage('Install surge')
         {
             steps {
-                sh 'npm install -g surge'
+                sh 'sudo npm install -g surge'
             }
         }
         stage('Deploy')
         {
             steps{
-                sh 'surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
+                sh 'sudo surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
             }
         }
         
