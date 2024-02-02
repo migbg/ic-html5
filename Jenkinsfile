@@ -24,7 +24,8 @@ pipeline {
         {
             steps {
                 sh 'apt-get install python3'
-                sh 'apt-get install python3-pip'
+                sh 'wget https://bootstrap.pypa.io/get-pip.py'
+                sh 'python3 get-pip.py'
                 sh 'pip install html5validator'
             }
         }
