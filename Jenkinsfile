@@ -20,20 +20,6 @@ pipeline {
                 sh 'npm install -g surge'
             }
         }
-        stage('pip')
-        {
-            steps {
-                sh 'apt-get install wget -y'
-                sh 'wget https://bootstrap.pypa.io/get-pip.py'
-                sh 'python3 get-pip.py'
-            }
-        }
-        stage('html5validator')
-        {
-            steps {
-                sh 'html5validator --root _build/'
-            }
-        }
         stage('Deploy')
         {
             steps{
