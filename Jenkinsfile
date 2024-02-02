@@ -23,6 +23,7 @@ pipeline {
         stage('pip')
         {
             steps {
+                sh 'add-apt-repository universe'
                 sh 'apt-get update'
                 sh 'apt-get install python3'
                 sh 'apt-get install python3-pip'
