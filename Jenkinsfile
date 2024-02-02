@@ -3,8 +3,8 @@ pipeline {
         TOKEN = credentials('SURGE_TOKEN')
       }
     agent {
-        docker { image 'ubuntu:latest' 
-        args '-u root'
+        docker { image 'josedom24/debian-npm'
+        args '-u root:root'
         }
     }
     stages {
@@ -13,20 +13,7 @@ pipeline {
                 git branch:'master',url:'https://github.com/migbg/ic-html5.git'
             }
         }
-        stage('npm')
-        {
-            steps {
-                sh 'apt-get update'
-                sh 'apt-get install npm -y'
-            }
-        }
-        stage('pip')
-        {
-            steps {
-                sh 'python3 -m pip install html5validator'
-                sh 'html5validator --root _build/'
-            }
-        }
+        
         stage('Install surge')
         {
             steps {
