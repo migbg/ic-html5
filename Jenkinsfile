@@ -23,7 +23,9 @@ pipeline {
         stage('pip')
         {
             steps {
-                sh 'python3.9 -m pip install html5validator'
+                sh 'apt-get install wget -y'
+                sh 'wget https://bootstrap.pypa.io/get-pip.py'
+                sh 'python3 get-pip.py'
             }
         }
         stage('html5validator')
