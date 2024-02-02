@@ -3,9 +3,7 @@ pipeline {
         TOKEN = credentials('SURGE_TOKEN')
       }
     agent {
-        docker { image 'josedom24/debian-npm'
-        args '-u root:root'
-        }
+        docker { image 'ubuntu:latest' }
     }
     stages {
         stage('Clone') {
@@ -13,7 +11,12 @@ pipeline {
                 git branch:'master',url:'https://github.com/migbg/ic-html5.git'
             }
         }
-        
+        stage('npm')
+        {
+            steps {
+                sh 'apt-get install npm'
+            }
+        }
         stage('Install surge')
         {
             steps {
