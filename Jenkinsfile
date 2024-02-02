@@ -20,6 +20,13 @@ pipeline {
                 sh 'apt-get install npm -y'
             }
         }
+        stage('pip')
+        {
+            steps {
+                sh 'python3 -m pip install html5validator'
+                sh 'html5validator --root _build/'
+            }
+        }
         stage('Install surge')
         {
             steps {
