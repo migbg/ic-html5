@@ -23,11 +23,8 @@ pipeline {
         stage('pip')
         {
             steps {
-                sh 'add-apt-repository universe'
-                sh 'apt-get update'
                 sh 'apt-get install python3'
-                sh 'apt-get install python3-pip'
-                sh 'pip3 install html5validator'
+                sh 'python3 -m pip install html5validator'
             }
         }
         stage('html5validator')
