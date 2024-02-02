@@ -23,6 +23,7 @@ pipeline {
         stage('pip')
         {
             steps {
+                sh 'python3 -m ensurepip --upgrade'
                 sh 'python3 -m pip install html5validator'
             }
         }
