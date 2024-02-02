@@ -3,7 +3,9 @@ pipeline {
         TOKEN = credentials('SURGE_TOKEN')
       }
     agent {
-        docker { image 'ubuntu:latest' }
+        docker { image 'ubuntu:latest' 
+        args '-u root'
+        }
     }
     stages {
         stage('Clone') {
@@ -14,19 +16,19 @@ pipeline {
         stage('npm')
         {
             steps {
-                sh 'sudo apt-get install npm'
+                sh 'apt-get install npm'
             }
         }
         stage('Install surge')
         {
             steps {
-                sh 'sudo npm install -g surge'
+                sh 'npm install -g surge'
             }
         }
         stage('Deploy')
         {
             steps{
-                sh 'sudo surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
+                sh 'surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
             }
         }
         
