@@ -23,6 +23,8 @@ pipeline {
         stage('pip')
         {
             steps {
+                sh 'apt-get install python'
+                sh 'python -m ensurepip --upgrade'
                 sh 'pip install html5validator'
             }
         }
