@@ -20,6 +20,18 @@ pipeline {
                 sh 'npm install -g surge'
             }
         }
+        stage('pip')
+        {
+            steps {
+                sh 'pip install html5validator'
+            }
+        }
+        stage('html5validator')
+        {
+            steps {
+                sh 'html5validator --root _build/'
+            }
+        }
         stage('Deploy')
         {
             steps{
