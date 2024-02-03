@@ -25,6 +25,7 @@ pipeline {
         {
             steps {
                 sh 'pip install html5validator --break-system-packages'
+                sh 'apt-get install openjdk8 -y'
                 sh 'html5validator --root _build/'
             }
         }
