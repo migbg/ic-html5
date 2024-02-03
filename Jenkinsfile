@@ -16,7 +16,7 @@ pipeline {
         stage('pip')
         {
             steps {
-                sh 'wget get-pip.py https://bootstrap.pypa.io/get-pip.py'
+                sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
                 sh 'pwd'
             }
         }
