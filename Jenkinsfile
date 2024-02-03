@@ -17,7 +17,8 @@ pipeline {
         {
             steps {
                 sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                sh 'apt-get update'
+                sh 'apt-get update && apt-get install -y software-properties-common'
+                sh 'add-apt-repository ppa:webupd8team/java && apt-get update'
                 sh 'apt-get install python3-pip -y'
             }
         }
@@ -25,7 +26,7 @@ pipeline {
         {
             steps {
                 sh 'pip install html5validator --break-system-packages'
-                /* sh 'apt-get install openjdk-8-jre -y' */
+                sh 'apt-get install openjdk-8-jre -y'
                 sh 'html5validator --root _build/'
             }
         }
