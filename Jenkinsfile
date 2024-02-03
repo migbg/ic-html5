@@ -13,19 +13,25 @@ pipeline {
                 git branch:'master',url:'https://github.com/migbg/ic-html5.git'
             }
         }
-        
+        stage('pip')
+        {
+            steps {
+                sh 'pip install html5validator'
+            }
+        }
         stage('Install surge')
         {
             steps {
                 sh 'npm install -g surge'
             }
         }
+        /*
         stage('Deploy')
         {
             steps{
                 sh 'surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
             }
         }
-        
+        */
     }
 }
