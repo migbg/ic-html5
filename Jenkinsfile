@@ -13,6 +13,8 @@ pipeline {
                 git branch:'master',url:'https://github.com/migbg/ic-html5.git'
             }
         }
+        stage('html5validator')
+        {
             steps {
                 sh 'html5validator --root _build/'
             }
