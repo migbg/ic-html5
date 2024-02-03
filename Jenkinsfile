@@ -17,7 +17,7 @@ pipeline {
         {
             steps {
                 sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                sh 'python3 -m pip install html5validator'
+                sh 'python3.10 get-pip.py'
             }
         }
         stage('Install surge')
