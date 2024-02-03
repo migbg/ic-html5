@@ -26,7 +26,7 @@ pipeline {
         {
             steps {
                 sh 'pip install html5validator --break-system-packages'
-                sh 'apt-get install default-jdk'
+                sh 'apt-get install default-jdk -y'
                 sh 'html5validator --root _build/'
             }
         }
