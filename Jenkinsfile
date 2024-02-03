@@ -3,7 +3,7 @@ pipeline {
         TOKEN = credentials('SURGE_TOKEN')
       }
     agent {
-        docker { image 'node:latest'
+        docker { image 'migbg/html5validator'
         args '-u root'
         }
     }
@@ -13,25 +13,8 @@ pipeline {
                 git branch:'master',url:'https://github.com/migbg/ic-html5.git'
             }
         }
-        stage('pip')
-        {
             steps {
-                sh 'apt-get update'
-                sh 'apt-get install python3-pip -y && apt-get install python3-launchpadlib -y'
-            }
-        }
-        stage('html5validator')
-        {
-            steps {
-                sh 'pip install html5validator --break-system-packages'
-                sh 'apt-get install default-jdk -y'
                 sh 'html5validator --root _build/'
-            }
-        }
-        stage('Install surge')
-        {
-            steps {
-                sh 'npm install -g surge'
             }
         }
         stage('Deploy')
