@@ -13,13 +13,13 @@ pipeline {
                 git branch:'master',url:'https://github.com/migbg/ic-html5.git'
             }
         }
-        stage('html5validator')
+        stage('Validator')
         {
             steps {
                 sh 'html5validator --root _build/'
             }
         }
-        stage('Deploy')
+        stage('Surge deploy')
         {
             steps{
                 sh 'surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
