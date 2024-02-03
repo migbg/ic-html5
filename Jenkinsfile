@@ -17,7 +17,7 @@ pipeline {
         {
             steps {
                 sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                sh 'pwd'
+                sh 'python3 get-pip.py'
             }
         }
         stage('Install surge')
