@@ -3,8 +3,8 @@ pipeline {
         TOKEN = credentials('SURGE_TOKEN')
       }
     agent {
-        docker { image 'josedom24/debian-npm'
-        args '-u root:root'
+        docker { image 'node:latest'
+        args '-u root'
         }
     }
     stages {
