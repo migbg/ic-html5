@@ -17,9 +17,9 @@ pipeline {
         {
             steps {
                 sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                /* sh 'python3 get-pip.py' */
                 sh 'apt-get update'
                 sh 'apt-get install python3-pip -y'
+                sh 'python3 -m pip install html5validator'
             }
         }
         stage('Install surge')
