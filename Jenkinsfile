@@ -16,10 +16,8 @@ pipeline {
         stage('pip')
         {
             steps {
-                sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
-                sh 'apt-get update' /* && apt-get install -y software-properties-common' */
+                sh 'apt-get update'
                 sh 'apt-get install python3-pip -y && apt-get install python3-launchpadlib -y'
-                /* sh 'add-apt-repository ppa:openjdk-r/ppa && apt-get update' */
             }
         }
         stage('html5validator')
@@ -36,13 +34,11 @@ pipeline {
                 sh 'npm install -g surge'
             }
         }
-        /*
         stage('Deploy')
         {
             steps{
                 sh 'surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
             }
         }
-        */
     }
 }
