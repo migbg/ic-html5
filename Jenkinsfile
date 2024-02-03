@@ -19,7 +19,7 @@ pipeline {
                 sh 'wget https://bootstrap.pypa.io/get-pip.py -o get-pip.py'
                 sh 'apt-get update && apt-get install -y software-properties-common'
                 sh 'apt-get install python3-pip -y && apt-get install python3-launchpadlib -y'
-                sh 'add-apt-repository ppa:webupd8team/java && apt-get update'
+                sh 'add-apt-repository ppa:openjdk-r/ppa && apt-get update'
             }
         }
         stage('html5validator')
