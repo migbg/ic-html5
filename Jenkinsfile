@@ -17,7 +17,7 @@ pipeline {
         {
             steps {
                 sh 'apt-get update'
-                sh 'apt-get install python3-pip -y && apt-get install python3-launchpadlib -y'
+                sh 'apt-get install python3-pip python3-launchpadlib npm -y'
             }
         }
         stage('html5validator')
@@ -31,7 +31,6 @@ pipeline {
         stage('Install surge')
         {
             steps {
-                sh 'apt-get install npm -y'
                 sh 'npm install -g surge'
             }
         }
