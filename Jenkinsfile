@@ -23,7 +23,7 @@ pipeline {
         stage('html5validator')
         {
             steps {
-                sh 'pip install html5validator --break-system-packages'
+                sh 'pip install html5validator'
                 sh 'apt-get install default-jdk -y'
                 sh 'html5validator --root _build/'
             }
