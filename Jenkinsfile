@@ -20,7 +20,7 @@ pipeline {
                 sh 'apt-get install python3-pip python3-launchpadlib default-jdk npm -y'
             }
         }
-        stage('html5validator')
+        stage('Validator')
         {
             steps {
                 sh 'pip install html5validator'
@@ -33,7 +33,7 @@ pipeline {
                 sh 'npm install -g surge'
             }
         }
-        stage('Deploy')
+        stage('Surge deploy')
         {
             steps{
                 sh 'surge ./_build/ miguel-barreto-garcia.surge.sh --token $TOKEN'
