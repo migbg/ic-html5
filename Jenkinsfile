@@ -17,14 +17,13 @@ pipeline {
         {
             steps {
                 sh 'apt-get update'
-                sh 'apt-get install python3-pip python3-launchpadlib npm -y'
+                sh 'apt-get install python3-pip python3-launchpadlib default-jdk npm -y'
             }
         }
         stage('html5validator')
         {
             steps {
                 sh 'pip install html5validator'
-                sh 'apt-get install default-jdk -y'
                 sh 'html5validator --root _build/'
             }
         }
